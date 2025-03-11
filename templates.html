@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Card Templates</title>
+    <style>
+        /* Template 1 - Modern Card */
+        .template1 {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --text-color: #333;
+            --bg-color: #fff;
+            /* Size variables */
+            --card-width: 300px;
+            --card-height: auto;
+            --card-padding: 20px;
+            --card-margin: 20px;
+            --border-radius: 10px;
+        }
+        .template1 .card {
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+            padding: var(--card-padding);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
+            width: var(--card-width);
+            height: var(--card-height);
+            margin: var(--card-margin);
+        }
+        .template1 h2 {
+            color: var(--primary-color);
+        }
+        .template1 .btn {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Template 2 - Gradient Header */
+        .template2 {
+            --gradient-start: #ff6b6b;
+            --gradient-end: #4ecdc4;
+            --text-color: #fff;
+            /* Size variables */
+            --header-width: 100%;
+            --header-height: 200px;
+            --header-padding: 40px;
+        }
+        .template2 .header {
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            padding: var(--header-padding);
+            color: var(--text-color);
+            text-align: center;
+            width: var(--header-width);
+            height: var(--header-height);
+        }
+
+        /* Template 3 - Sidebar Layout */
+        .template3 {
+            --sidebar-color: #2c3e50;
+            --content-color: #ecf0f1;
+            --accent-color: #e74c3c;
+            /* Size variables */
+            --sidebar-width: 250px;
+            --content-width: calc(100% - var(--sidebar-width));
+            --sidebar-padding: 20px;
+            --content-padding: 20px;
+        }
+        .template3 {
+            display: flex;
+        }
+        .template3 .sidebar {
+            background: var(--sidebar-color);
+            width: var(--sidebar-width);
+            height: 100vh;
+            padding: var(--sidebar-padding);
+            color: white;
+        }
+        .template3 .content {
+            background: var(--content-color);
+            padding: var(--content-padding);
+            width: var(--content-width);
+        }
+        .template3 .accent {
+            color: var(--accent-color);
+        }
+
+        /* Template 5 - Minimal Design */
+        .template5 {
+            --main-color: #34495e;
+            --highlight-color: #f1c40f;
+            --text-color: #2c3e50;
+            /* Size variables */
+            --container-width: 800px;
+            --container-padding: 20px;
+            --title-margin: 20px 0;
+        }
+        .template5 .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+        .template5 .title {
+            color: var(--main-color);
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 10px;
+            margin: var(--title-margin);
+        }
+    </style>
+</head>
+<body>
+    <!-- Template 1 -->
+    <div class="template1">
+        <div class="card">
+            <h2>Modern Card Design</h2>
+            <p>This is a modern card template with customizable colors and size.</p>
+            <button class="btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Template 2 -->
+    <div class="template2">
+        <div class="header">
+            <h1>Gradient Header</h1>
+            <p>A beautiful gradient header template with customizable size</p>
+        </div>
+    </div>
+
+    <!-- Template 3 -->
+    <div class="template3">
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <ul>
+                <li>Menu Item 1</li>
+                <li>Menu Item 2</li>
+                <li>Menu Item 3</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>Main Content</h2>
+            <p>This is the main content area with <span class="accent">accent colors</span>.</p>
+        </div>
+    </div>
+
+    <!-- Template 5 -->
+    <div class="template5">
+        <div class="container">
+            <h1 class="title">Minimal Design</h1>
+            <p>A clean and minimal template design with customizable colors and size.</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to change colors and sizes for any template
+        function changeTemplateProperties(templateClass, properties) {
+            const template = document.querySelector('.' + templateClass);
+            for (const [property, value] of Object.entries(properties)) {
+                template.style.setProperty('--' + property, value);
+            }
+        }
+
+        // Example usage:
+        // changeTemplateProperties('template1', {
+        //     'card-width': '400px',
+        //     'card-height': '300px',
+        //     'card-padding': '30px',
+        //     'card-margin': '30px',
+        //     'border-radius': '15px'
+        // });
+    </script>
+</body>
+</html> 
